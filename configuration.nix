@@ -88,8 +88,21 @@
     ];
   };
 
-  # Install firefox.
+  # Enable Programs
   programs.firefox.enable = true;
+
+  programs.zsh = {
+      enable = true;
+      ohMyZsh = {
+        enable = true;
+        plugins = [ "git" "docker" "sudo" "kubectl" ];
+        theme = "robbyrussell";
+      };
+      shellInit = ''
+        #${builtins.replaceStrings ["\r\n"] ["\n"] (builtins.readFile ./functions.zsh)}
+        #${builtins.replaceStrings ["\r\n"] ["\n"] (builtins.readFile ./client-functions.zsh)}
+      '';
+    };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -103,6 +116,7 @@
 	git
 	tailscale
   zsh
+  ohmyzsh
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
