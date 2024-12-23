@@ -98,12 +98,7 @@
         plugins = [ "git" "docker" "sudo" "kubectl" ];
         theme = "robbyrussell";
       };
-      shellInit = ''
-        #${builtins.replaceStrings ["\r\n"] ["\n"] (builtins.readFile ./functions.zsh)}
-        #${builtins.replaceStrings ["\r\n"] ["\n"] (builtins.readFile ./client-functions.zsh)}
-      '';
     };
-  }
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
