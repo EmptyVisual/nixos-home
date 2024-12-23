@@ -102,6 +102,7 @@
 	curl
 	git
 	tailscale
+  zsh
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -111,6 +112,9 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+
+  users.defaultUserShell = pkgs.zsh;
+  users.users.root.shell = pkgs.zsh;
 
   # List services that you want to enable:
 
