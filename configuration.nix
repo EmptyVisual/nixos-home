@@ -103,6 +103,7 @@
         #${builtins.replaceStrings ["\r\n"] ["\n"] (builtins.readFile ./client-functions.zsh)}
       '';
     };
+  }
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
